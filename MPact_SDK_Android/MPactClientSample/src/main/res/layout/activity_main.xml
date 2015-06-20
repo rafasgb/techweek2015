@@ -1,0 +1,285 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Server"
+        android:id="@+id/textViewServerLabel"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextServer"
+        android:layout_alignStart="@+id/editTextLoginID"
+        android:text="\?"
+        android:layout_alignTop="@+id/textViewServerLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=":"
+        android:id="@+id/textViewServerSeparator"
+        android:layout_toRightOf="@+id/editTextServer"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/editTextServer" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextServerPort"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/textViewServerSeparator"
+        android:layout_alignTop="@+id/editTextServer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Login ID"
+        android:id="@+id/textViewLoginIDLabel"
+        android:layout_below="@+id/editTextServer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Password"
+        android:id="@+id/textViewPasswordLabel"
+        android:layout_below="@+id/editTextLoginID"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Client Name"
+        android:id="@+id/textViewClientNameLabel"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextClientName"
+        android:layout_alignStart="@+id/editTextUUID"
+        android:text="\?"
+        android:layout_alignTop="@+id/textViewClientNameLabel" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use HTTPS"
+        android:id="@+id/switchHTTPS"
+        android:layout_alignParentTop="false"
+        android:checked="false"
+        android:layout_below="@+id/editTextClientName" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Authenticate Server Cert"
+        android:id="@+id/switchAuthenticate"
+        android:layout_alignParentTop="false"
+        android:checked="false"
+        android:layout_below="@+id/switchHTTPS" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="iBeacon UUID"
+        android:id="@+id/textViewUUIDLabel"
+        android:layout_below="@+id/switchAuthenticate"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextUUID"
+        android:layout_alignStart="@+id/textViewClosestTag"
+        android:text="\?"
+        android:layout_alignTop="@+id/textViewUUIDLabel" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUUID"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:orientation="horizontal"
+        android:id="@+id/groupBeaconType">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Battery Save"
+            android:id="@+id/radioButtonBatterySave"
+            android:checked="true"
+            android:onClick="onBeaconTypeClick" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MPact Beacon"
+            android:id="@+id/radioButtonMPactBeacon"
+            android:checked="false"
+            android:onClick="onBeaconTypeClick" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iBeacon"
+            android:id="@+id/radioButtonIBeacon"
+            android:checked="false"
+            android:onClick="onBeaconTypeClick" />
+
+    </RadioGroup>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan for Tags"
+        android:id="@+id/switchScan"
+        android:layout_alignParentTop="false"
+        android:checked="false"
+        android:layout_below="@+id/groupBeaconType" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Closest Tag"
+        android:id="@+id/textViewClosestTagLabel"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switchScan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewClosestTag"
+        android:layout_alignTop="@+id/textViewClosestTagLabel"
+        android:layout_toRightOf="@+id/textViewClosestTagLabel"
+        android:layout_marginLeft="60dp"
+        android:text="\?" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="RSSI"
+        android:id="@+id/textViewRssiLabel"
+        android:layout_below="@+id/textViewClosestTag" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\?"
+        android:id="@+id/textViewRssi"
+        android:layout_alignTop="@+id/textViewRssiLabel"
+        android:layout_alignLeft="@+id/editTextUUID" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Battery Level"
+        android:id="@+id/textViewBatteryLevelLabel"
+        android:layout_below="@+id/textViewRssiLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\?"
+        android:id="@+id/textViewBatteryLevel"
+        android:layout_below="@+id/textViewRssi"
+        android:layout_alignStart="@+id/textViewRssi" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Region State"
+        android:id="@+id/textViewRegionStateLabel"
+        android:layout_below="@+id/textViewBatteryLevelLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Unknown"
+        android:id="@+id/textViewRegionState"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/textViewRegionStateLabel"
+        android:layout_alignLeft="@+id/textViewClosestTag" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="SDK Version"
+        android:id="@+id/textViewSDKVersionLabel"
+        android:layout_below="@+id/textViewRegionStateLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\?"
+        android:id="@+id/textViewSDKVersion"
+        android:layout_below="@+id/textViewRegionState"
+        android:layout_alignStart="@+id/textViewRegionState" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Client ID"
+        android:id="@+id/textViewClientIDLabel"
+        android:layout_below="@+id/textViewSDKVersionLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="\?"
+        android:id="@+id/textViewClientID"
+        android:layout_alignTop="@+id/textViewClientIDLabel"
+        android:layout_alignStart="@+id/textViewSDKVersion" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editTextPassword"
+        android:layout_alignTop="@+id/textViewPasswordLabel"
+        android:layout_alignStart="@+id/editTextClientName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextLoginID"
+        android:layout_alignTop="@+id/textViewLoginIDLabel"
+        android:layout_alignStart="@+id/editTextPassword"
+        android:text="\?" />
+
+</RelativeLayout>
