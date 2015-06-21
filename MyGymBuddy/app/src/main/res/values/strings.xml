@@ -28,5 +28,7 @@
     for a balance of both. Do not bend your wrists or bounce the bar off your chest. Dismount the
     bar and control the weight until it is slightly above your sternum. Then, with control, explode
     the bar up. That is one repetition. </string>
+    <string name="action_setting">Settings</string>
+    <string name="action_logout">Logout</string>
 
 </resources>
