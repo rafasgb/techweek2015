@@ -1,5 +1,6 @@
 package com.techhack.mygymbuddy;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,8 +23,8 @@ public class LoginActivity extends ActionBarActivity {
         mloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Intent intent = new Intent(MainActivity.this, StoreListActivity.class);
-                //startActivity(intent);
+                 Intent intent = new Intent(LoginActivity.this, youtubePlayback.class);
+                startActivity(intent);
 
             }
         });
