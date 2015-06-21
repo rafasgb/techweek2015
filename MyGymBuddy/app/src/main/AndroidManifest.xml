@@ -10,6 +10,14 @@
     <!-- This permission is needed to allow the app to turn on the screen when it creates the notification-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

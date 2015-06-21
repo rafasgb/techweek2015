@@ -8,26 +8,41 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.plus.Plus;
 
-public class LoginActivity extends Activity {
 
-    Button mloginBtn;
+public class LoginActivity extends Activity implements View.OnClickListener,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+
+    private SignInButton mloginBtn;
 
     private final static String TAG = "LoginActivity";
+
+    protected synchronized void buildGoogleApiClient() {
+        GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(Plus.API, Plus.PlusOptions.builder().build())
+                .addScope(Plus.SCOPE_PLUS_LOGIN);
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mloginBtn = (Button) findViewById(R.id.btnSingIn);
+        mloginBtn = (SignInButton) findViewById(R.id.btn_sign_in);
 
         mloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent intent = new Intent(LoginActivity.this, InstructionActivity.class);
+                Intent intent = new Intent(LoginActivity.this, InstructionActivity.class);
                 startActivity(intent);
-
             }
         });
+
+        buildGoogleApiClient();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,5 +64,25 @@ public class LoginActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }
