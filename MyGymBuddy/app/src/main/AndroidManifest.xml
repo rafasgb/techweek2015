@@ -19,6 +19,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".InstructionActivity"
+            android:label="InstructionActivity">
+            </activity>
+        <activity
             android:name=".youtubePlayback"
             android:label="@string/title_activity_youtube_playback" >
         </activity>
