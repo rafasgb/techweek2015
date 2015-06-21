@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MPactClient1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MPact_SDK_Android/libs/MPactClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

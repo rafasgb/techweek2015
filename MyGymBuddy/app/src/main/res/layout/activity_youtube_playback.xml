@@ -19,13 +19,16 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textAppearance="@android:style/TextAppearance.Small"
+        android:textAppearance="@android:style/TextAppearance.Material.Display2"
         android:gravity="center"
-        android:text="@string/playerview_text"/>
+        android:text="@string/playerview_text"
+        android:padding="4dp"
+        android:textAlignment="center" />
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_view"

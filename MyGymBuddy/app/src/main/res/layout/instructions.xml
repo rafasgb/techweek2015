@@ -4,13 +4,7 @@
     android:layout_height="match_parent"
     android:weightSum="1"
     android:padding="15dp">
-    <ToggleButton
-        android:id="@+id/notButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:textOn="Notifications on"
-        android:textOff="Notifications off"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,13 +22,29 @@
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
         android:layout_margin="15dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:textAlignment="center" />
 
 
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/barbell" />
+
+    <ToggleButton
+        android:id="@+id/notButton"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:checked="true"
+        android:textOn="Notifications on"
+        android:textOff="Notifications off"
+        android:layout_gravity="center_horizontal" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/horizontalScrollView"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
