@@ -23,7 +23,7 @@ public class LoginActivity extends ActionBarActivity {
         mloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent intent = new Intent(LoginActivity.this, youtubePlayback.class);
+                 Intent intent = new Intent(LoginActivity.this, InstructionActivity.class);
                 startActivity(intent);
 
             }

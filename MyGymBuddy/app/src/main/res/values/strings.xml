@@ -7,5 +7,8 @@
     <string name="playerview_text">This is a YouTubePlayerView!</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="title_activity_youtube">youtube</string>
+    <string name="instructions_paragraph">Just walk up to any machine and learn how to properly
+    use it</string>
+    <string name="instructions_title">Instructions</string>
 
 </resources>
