@@ -10,5 +10,8 @@
     <string name="instructions_paragraph">Just walk up to any machine and learn how to properly
     use it</string>
     <string name="instructions_title">Instructions</string>
+    <string name="readme">This app will generate notifications about the region state
+        even if the app is killed.
+        The app will also auto-launch in the background on boot.</string>
 
 </resources>
