@@ -10,8 +10,23 @@
     <string name="instructions_paragraph">Just walk up to any machine and learn how to properly
     use it</string>
     <string name="instructions_title">Instructions</string>
+    <string name="squat_text">Squat Press</string>
+    <string name="bench_text">Bench Press</string>
     <string name="readme">This app will generate notifications about the region state
         even if the app is killed.
         The app will also auto-launch in the background on boot.</string>
+    <string name="squat_instructions">Stretch and warm up. Place your feet no more than shoulder-width apart.
+     Point toes slightly outward. Place bar over your trapezius muscle, not your neck. Grab bar
+    about 6 inches from shoulders. Dismount weight and step forward (or backward depending on
+    setup). Keeping your back straight, bend at your knees as if you were sitting into a chair.
+    Keep your heels on the floor. Bring your thighs parallel to the floor for full range of motion.
+    Thrust your hips forward, keep your lower back in a neutral position(slightly arched) and
+    abs in. Use your whole body to assist in lifting the weight.</string>
+    <string name="bench_instruction">Stretch and warm up. Keep your feet flat on the ground, about shoulder width apart,
+        and keep your shoulders touching the bench. Use a wide grip for emphasis on pectoral
+    muscles, narrow grip for emphasis on triceps, and normal grip(slightly more than shoulder width)
+    for a balance of both. Do not bend your wrists or bounce the bar off your chest. Dismount the
+    bar and control the weight until it is slightly above your sternum. Then, with control, explode
+    the bar up. That is one repetition. </string>
 
 </resources>

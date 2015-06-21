@@ -21,8 +21,9 @@ public class InstructionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        idTovideo.put("0x236b0c", "wKJ9KzGQq0w");
-        idTovideo.put("0x236d6f","dQw4w9WgXcQ");
+
+        idTovideo.put("0x236b0c", "wKJ9KzGQq0w");//bench press
+        idTovideo.put("0x236d6f","dQw4w9WgXcQ"); //squat
         // Start up the background beacon monitoring service
         Intent myIntent = new Intent(this, MonitorService.class);
         startService(myIntent);
