@@ -32,22 +32,22 @@ public class youtubePlayback extends YouTubeFailureRecoveryActivity {
 
 
             //BenchPress
-        if (id.equals("wKJ9KzGQq0w")) {
+        if (id.equals("wOnP_oAXUMA")) {
             workoutInstructionTitleTV.setText(R.string.bench_text);
             workoutInstructionsTV.setText(R.string.bench_instruction);
 
         }
 
         //Squat press
-            else if (id.equals("dQw4w9WgXcQ")){
+            else if (id.equals("dP4SjMwFIRk")){
             workoutInstructionTitleTV.setText(R.string.squat_text);
             workoutInstructionsTV.setText(R.string.squat_instructions);
         }
             //use this to play video automatically
-          //  player.loadVideo(id);
+            player.loadVideo(id);
 
 
-            player.cueVideo(id);
+            //player.cueVideo(id);
         }
     }
 
