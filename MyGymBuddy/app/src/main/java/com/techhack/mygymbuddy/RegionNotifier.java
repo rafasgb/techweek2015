@@ -108,7 +108,7 @@ public class RegionNotifier implements MPactClientNotifier {
         // Generate a notification
         if(!notf) return;
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle("My Gym Buddy")
                 .setContentText(msg);
         Intent resultIntent = new Intent(context, InstructionActivity.class);
