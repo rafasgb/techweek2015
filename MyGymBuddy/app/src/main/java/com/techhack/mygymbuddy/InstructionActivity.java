@@ -37,8 +37,9 @@ public class InstructionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         this.setBluetooth(true);
         super.onCreate(savedInstanceState);
-        idTovideo.put("0x236b0c", "wKJ9KzGQq0w");
-        idTovideo.put("0x236d6f","dQw4w9WgXcQ");
+
+        idTovideo.put("0x236b0c", "wOnP_oAXUMA");//bench press
+        idTovideo.put("0x236d6f","dP4SjMwFIRk"); //squat
         // Start up the background beacon monitoring service
         Intent myIntent = new Intent(this, MonitorService.class);
         startService(myIntent);
