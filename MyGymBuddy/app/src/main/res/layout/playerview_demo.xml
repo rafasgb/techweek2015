@@ -19,6 +19,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/switch_thumb_normal_material_light">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,12 +35,14 @@
     <TextView
       android:id="@+id/instructions_textView"
       android:layout_width="match_parent"
-      android:layout_height="0dp"
+      android:layout_height="fill_parent"
       android:layout_weight="1"
       android:textAppearance="@android:style/TextAppearance.Small"
       android:gravity="center"
-      android:text="@string/playerview_text"/>
-
+      android:text="@string/playerview_text"
+        style="@style/Base.Theme.AppCompat.Light.Dialog"
+        android:autoText="false" />
+    </FrameLayout>
   <com.google.android.youtube.player.YouTubePlayerView
       android:id="@+id/youtube_view"
       android:layout_width="match_parent"

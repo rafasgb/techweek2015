@@ -19,7 +19,7 @@ public class InstructionActivity extends Activity {
 
     Button button;
 
-    private HashMap<String, String> idTovideo = new HashMap<String,String>();
+    private static HashMap<String, String> idTovideo = new HashMap<String,String>();
 
     public static boolean setBluetooth(boolean enable) {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -33,6 +33,7 @@ public class InstructionActivity extends Activity {
         // No need to change bluetooth state
         return true;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.setBluetooth(true);
