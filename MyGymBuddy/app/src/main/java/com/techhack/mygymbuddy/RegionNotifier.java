@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.zebra.mpact.mpactclient.MPactBeaconType;
 import com.zebra.mpact.mpactclient.MPactClientNotifier;
 import com.zebra.mpact.mpactclient.MPactProximity;
@@ -31,8 +32,10 @@ public class RegionNotifier implements MPactClientNotifier {
     private int regionState = MPactClientNotifier.OUTSIDE;
     private int previousState = MPactClientNotifier.OUTSIDE;
 
+    public boolean notf = true;
+    private String previousID ;
     private InstructionActivity mainActivity = null;
-
+    private YouTubeBaseActivity youActivity = null;
     public static RegionNotifier getInstanceForApplication(Context context) {
         if (client == null) {
             client = new RegionNotifier(context.getApplicationContext());
@@ -47,23 +50,36 @@ public class RegionNotifier implements MPactClientNotifier {
     @Override
     public void didDetermineClosestTag(MPactTag mpactTag) {
         String id = mpactTag.getTagID();
-        if(regionState == MPactClientNotifier.INSIDE && previousState != regionState) {
+        if(regionState == MPactClientNotifier.INSIDE) {
+
             if (id.equals("0x236d6f")) {
                 id = "squats";
             } else if (id.equals("0x236b0c"))
             {
-                id = "leg";
+                id = "bench";
             }
-            notify("If you want some tips on "+id+" workout, click me");
-        }
-        updateID(mpactTag.getTagID());
+            if(!id.equals(previousID))
+            {
+                previousID = id;
+                if(youActivity != null)
+                {
+                    youActivity.finish();
+                }
+                notify("If you want some tips on " + id + " workout, click me");
 
+            }
+            previousState = regionState;
+
+        }
+
+        updateID(mpactTag.getTagID());
     }
 
     @Override
     public void didDetermineState(int state) {
         previousState = regionState;
         regionState = state;
+        updateActivityRegionState(state);
     }
 
     @Override
@@ -90,6 +106,7 @@ public class RegionNotifier implements MPactClientNotifier {
     // Multiple calls to this method will only display the most current message.
     private void notify(String msg) {
         // Generate a notification
+        if(!notf) return;
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("My Gym Buddy")
@@ -115,20 +132,26 @@ public class RegionNotifier implements MPactClientNotifier {
             return;
         }
 
+
         mainActivity.showVideo(id);
 
 
     }
     private void updateActivityRegionState(int state) {
-        if(mainActivity == null) {
+        if(youActivity == null) {
             return;
         }
-        if(state == MPactClientNotifier.INSIDE) {
-            //mainActivity.setLabelText(R.id.textViewRegionState, "Inside");
-        } else if(state == MPactClientNotifier.OUTSIDE) {
-            //mainActivity.setLabelText(R.id.textViewRegionState, "Outside");
+        if(state == MPactClientNotifier.OUTSIDE) {
+            youActivity.finish();
+            previousID = "";
+
+
         }
 
+    }
+    public void setYoutubeActivity(YouTubeBaseActivity youActivity) {
+        this.youActivity = youActivity;
+        updateActivityRegionState(regionState);
     }
     public void setMainActivity(InstructionActivity mainActivity) {
         this.mainActivity = mainActivity;

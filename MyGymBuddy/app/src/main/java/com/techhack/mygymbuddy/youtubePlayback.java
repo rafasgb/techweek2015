@@ -11,13 +11,14 @@ public class youtubePlayback extends YouTubeFailureRecoveryActivity {
     String id;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        InstructionActivity.setBluetooth(true);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.playerview_demo);
         Intent intent = this.getIntent();
 
         id = intent.getExtras().getString("id");
-
+        RegionNotifier.getInstanceForApplication(getApplicationContext()).setYoutubeActivity(this);
         YouTubePlayerView youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(DeveloperKey.DEVELOPER_KEY, this);
     }
@@ -28,6 +29,19 @@ public class youtubePlayback extends YouTubeFailureRecoveryActivity {
         if (!wasRestored) {
             player.cueVideo(id);
         }
+    }
+
+    @Override
+    public void onResume() {
+        InstructionActivity.setBluetooth(true);
+        RegionNotifier.getInstanceForApplication(getApplicationContext()).setYoutubeActivity(this);
+        super.onResume();
+
+
+    }
+    protected void onDestroy() {
+        RegionNotifier.getInstanceForApplication(getApplicationContext()).setYoutubeActivity(null);
+        super.onDestroy();
     }
 
     @Override

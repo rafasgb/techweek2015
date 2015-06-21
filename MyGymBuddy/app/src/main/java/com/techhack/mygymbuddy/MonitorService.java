@@ -53,6 +53,7 @@ public class MonitorService extends Service
             regionNotifier = RegionNotifier.getInstanceForApplication(getApplicationContext());
         }
 
+        mpactClient.setClientName("name");
         mpactClient.setNotifier(regionNotifier);
         mpactClient.setiBeaconUUID("fe913213-b311-4a42-8c16-47faeac938db");
         try {

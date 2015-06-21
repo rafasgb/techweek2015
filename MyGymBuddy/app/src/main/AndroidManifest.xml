@@ -3,6 +3,10 @@
     package="com.techhack.mygymbuddy" >
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
     <!-- This permission is needed to allow the app to turn on the screen when it creates the notification-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -11,6 +15,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
